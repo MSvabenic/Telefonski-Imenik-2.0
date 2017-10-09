@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201710091626190_TablicaBrojeviOsoba.Designer.cs">
       <DependentUpon>201710091626190_TablicaBrojeviOsoba.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710091630582_PopunaBrojeviTip.cs" />
+    <Compile Include="Migrations\201710091630582_PopunaBrojeviTip.Designer.cs">
+      <DependentUpon>201710091630582_PopunaBrojeviTip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710091626190_TablicaBrojeviOsoba.resx">
       <DependentUpon>201710091626190_TablicaBrojeviOsoba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091630582_PopunaBrojeviTip.resx">
+      <DependentUpon>201710091630582_PopunaBrojeviTip.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
