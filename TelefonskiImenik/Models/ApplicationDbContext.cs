@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace TelefonskiImenik.Models
 {
-        public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         {
-            public ApplicationDbContext()
+
+        public DbSet<Osoba> Osobe { get; set; }
+
+        public ApplicationDbContext()
                 : base("DefaultConnection", throwIfV1Schema: false)
             {
             }

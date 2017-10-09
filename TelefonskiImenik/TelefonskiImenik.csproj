@@ -209,11 +209,16 @@
     <Compile Include="Migrations\201710091551339_InicijalnaMigracija.Designer.cs">
       <DependentUpon>201710091551339_InicijalnaMigracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710091606487_TablicaOsoba.cs" />
+    <Compile Include="Migrations\201710091606487_TablicaOsoba.Designer.cs">
+      <DependentUpon>201710091606487_TablicaOsoba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Osoba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -294,6 +299,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710091551339_InicijalnaMigracija.resx">
       <DependentUpon>201710091551339_InicijalnaMigracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091606487_TablicaOsoba.resx">
+      <DependentUpon>201710091606487_TablicaOsoba.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
