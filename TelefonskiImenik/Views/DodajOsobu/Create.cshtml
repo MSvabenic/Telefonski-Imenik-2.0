@@ -1,0 +1,39 @@
+﻿@model TelefonskiImenik.ViewModels.UnosBrojaViewModel
+@{
+    ViewBag.Title = "Dodaj osobu i broj";
+}
+
+<h2>Dodaj osobu i broj</h2>
+
+@using (Html.BeginForm("Create", "DodajOsobu"))
+{
+    <div class:"form-group">
+        @Html.LabelFor(m => m.Ime)
+        @Html.TextBoxFor(m => m.Ime, new { @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.Prezime)
+        @Html.TextBoxFor(m => m.Prezime, new { @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.Grad)
+        @Html.TextBoxFor(m => m.Grad, new { @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.Opis)
+        @Html.TextAreaFor(m => m.Opis, new { @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.BrojTip)
+        @Html.DropDownListFor(m => m.BrojTip, new SelectList(Model.TipBroja, "BrojTipId", "Naziv"), "", new { @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.Broj)
+        @Html.TextBoxFor(m => m.Broj, new { @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.OpisBroja)
+        @Html.TextAreaFor(m => m.OpisBroja, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
