@@ -213,10 +213,19 @@
     <Compile Include="Migrations\201710091606487_TablicaOsoba.Designer.cs">
       <DependentUpon>201710091606487_TablicaOsoba.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710091614353_TablicaTipBroja.cs" />
+    <Compile Include="Migrations\201710091614353_TablicaTipBroja.Designer.cs">
+      <DependentUpon>201710091614353_TablicaTipBroja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710091615282_OsobaTablicaIzmjenaID-a.cs" />
+    <Compile Include="Migrations\201710091615282_OsobaTablicaIzmjenaID-a.Designer.cs">
+      <DependentUpon>201710091615282_OsobaTablicaIzmjenaID-a.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\BrojTip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Osoba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -302,6 +311,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710091606487_TablicaOsoba.resx">
       <DependentUpon>201710091606487_TablicaOsoba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091614353_TablicaTipBroja.resx">
+      <DependentUpon>201710091614353_TablicaTipBroja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091615282_OsobaTablicaIzmjenaID-a.resx">
+      <DependentUpon>201710091615282_OsobaTablicaIzmjenaID-a.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

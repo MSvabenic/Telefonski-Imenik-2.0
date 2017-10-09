@@ -12,7 +12,7 @@ namespace TelefonskiImenik.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Osoba_Id { get; set; }
+        public int OsobaId { get; set; }
 
         [Required]
         public string Ime { get; set; }
