@@ -221,10 +221,15 @@
     <Compile Include="Migrations\201710091615282_OsobaTablicaIzmjenaID-a.Designer.cs">
       <DependentUpon>201710091615282_OsobaTablicaIzmjenaID-a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710091626190_TablicaBrojeviOsoba.cs" />
+    <Compile Include="Migrations\201710091626190_TablicaBrojeviOsoba.Designer.cs">
+      <DependentUpon>201710091626190_TablicaBrojeviOsoba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\BrojeviOsoba.cs" />
     <Compile Include="Models\BrojTip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Osoba.cs" />
@@ -317,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710091615282_OsobaTablicaIzmjenaID-a.resx">
       <DependentUpon>201710091615282_OsobaTablicaIzmjenaID-a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710091626190_TablicaBrojeviOsoba.resx">
+      <DependentUpon>201710091626190_TablicaBrojeviOsoba.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

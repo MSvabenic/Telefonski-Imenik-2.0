@@ -14,6 +14,8 @@ namespace TelefonskiImenik.Models
 
         public DbSet<BrojTip> BrojTipovi { get; set; }
 
+        public DbSet<BrojeviOsoba> BrojeviOsobe { get; set; }
+
         public ApplicationDbContext()
                 : base("DefaultConnection", throwIfV1Schema: false)
             {
