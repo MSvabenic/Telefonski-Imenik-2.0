@@ -1,9 +1,9 @@
 ﻿@model TelefonskiImenik.ViewModels.UnosBrojaViewModel
 @{
-    ViewBag.Title = "Dodaj osobu i broj";
+    ViewBag.Title = "Dodaj kontakt";
 }
 
-<h2>Dodaj osobu i broj</h2>
+<h2>Dodaj kontakt</h2>
 
 @using (Html.BeginForm("Create", "DodajOsobu"))
 {
@@ -35,5 +35,5 @@
         @Html.LabelFor(m => m.OpisBroja)
         @Html.TextAreaFor(m => m.OpisBroja, new { @class = "form-control" })
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Spremi</button>
 }

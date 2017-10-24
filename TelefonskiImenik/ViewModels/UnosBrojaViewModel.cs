@@ -21,9 +21,9 @@ namespace TelefonskiImenik.ViewModels
 
         public string Opis { get; set; }
 
+        [DisplayName("Tip broja telefona")]
         public int BrojTip { get; set; }
 
-        [DisplayName("Tip broja telefona")]
         public IEnumerable<BrojTip> TipBroja { get; set; }
 
         public int Broj { get; set; }
