@@ -28,7 +28,7 @@ namespace TelefonskiImenik.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(UnosBrojaViewModel viewModel,HttpPostedFileBase slika)
+        public ActionResult Create(UnosBrojaViewModel viewModel,HttpPostedFileBase upload)
         {
 
             var file = Request.Files[0];                            // kod za spremanje slike u bazu podataka
@@ -47,7 +47,8 @@ namespace TelefonskiImenik.Controllers
                 Ime = viewModel.Ime,
                 Prezime = viewModel.Prezime,
                 Grad = viewModel.Grad,
-                Opis = viewModel.Opis
+                Opis = viewModel.Opis,
+                Slika = content
             };
 
             _context.Osobe.Add(os);

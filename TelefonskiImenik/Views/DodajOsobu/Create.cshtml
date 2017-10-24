@@ -5,7 +5,7 @@
 
 <h2>Dodaj kontakt</h2>
 
-@using (Html.BeginForm("Create", "DodajOsobu"))
+@using (Html.BeginForm("Create", "DodajOsobu", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class:"form-group">
         @Html.LabelFor(m => m.Ime)
