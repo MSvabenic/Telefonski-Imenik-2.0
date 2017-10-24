@@ -28,8 +28,14 @@ namespace TelefonskiImenik.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(UnosBrojaViewModel viewModel)
+        public ActionResult Create(UnosBrojaViewModel viewModel,HttpPostedFileBase slika)
         {
+
+            var file = Request.Files[0];                            // kod za spremanje slike u bazu podataka
+            var content = new byte[file.ContentLength];             // nakodirati provjeru naknadno
+            file.InputStream.Read(content, 0, file.ContentLength);
+            viewModel.Slika = content;
+
             if (!ModelState.IsValid)  // provjera modela, ako je ok sprema, ako nije vraća natrag original model
             {
                 viewModel.TipBroja = _context.BrojTipovi.ToList();
@@ -59,6 +65,20 @@ namespace TelefonskiImenik.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Details(int Id)
+        {
+            var os = _context.Osobe.Where(o => o.OsobaId == Id).FirstOrDefault();
+
+            return View(os);
+        }
+
+        public ActionResult DohvatiSliku(int Id) // controller za zvanje slike iz baze podataka, izmijeniti logiku za slučaj kada nema slike
+        {
+            var stream = (from m in _context.Osobe where m.OsobaId == Id select m.Slika).FirstOrDefault();
+
+            return File(stream, "image/jpeg");
         }
     }
 }

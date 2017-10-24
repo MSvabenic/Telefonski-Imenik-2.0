@@ -21,6 +21,8 @@ namespace TelefonskiImenik.ViewModels
 
         public string Opis { get; set; }
 
+        public byte[] Slika { get; set; }
+
         [DisplayName("Tip broja telefona")]
         public int BrojTip { get; set; }
 

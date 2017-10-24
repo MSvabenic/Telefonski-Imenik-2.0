@@ -35,5 +35,9 @@
         @Html.LabelFor(m => m.OpisBroja)
         @Html.TextAreaFor(m => m.OpisBroja, new { @class = "form-control" })
     </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.Slika)
+        <input type="file" id="slika" name="upload" />
+    </div>
     <button type="submit" class="btn btn-primary">Spremi</button>
 }
