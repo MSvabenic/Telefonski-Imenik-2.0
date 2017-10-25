@@ -28,13 +28,16 @@ namespace TelefonskiImenik.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(UnosBrojaViewModel viewModel,HttpPostedFileBase upload)
+        public ActionResult Create(UnosBrojaViewModel viewModel, HttpPostedFileBase upload)
         {
 
-            var file = Request.Files[0];                            // kod za spremanje slike u bazu podataka
-            var content = new byte[file.ContentLength];             // nakodirati provjeru naknadno
-            file.InputStream.Read(content, 0, file.ContentLength);
-            viewModel.Slika = content;
+            if (upload != null && upload.ContentLength > 0)              // provjera postoji li slika(file)
+            {
+                var file = Request.Files[0];                            // kod za spremanje slike u bazu podataka
+                var content = new byte[file.ContentLength];             
+                file.InputStream.Read(content, 0, file.ContentLength);
+                viewModel.Slika = content;
+            }
 
             if (!ModelState.IsValid)  // provjera modela, ako je ok sprema, ako nije vraća natrag original model
             {
@@ -48,7 +51,7 @@ namespace TelefonskiImenik.Controllers
                 Prezime = viewModel.Prezime,
                 Grad = viewModel.Grad,
                 Opis = viewModel.Opis,
-                Slika = content
+                Slika = viewModel.Slika
             };
 
             _context.Osobe.Add(os);
@@ -70,16 +73,19 @@ namespace TelefonskiImenik.Controllers
 
         public ActionResult Details(int Id)
         {
-            var os = _context.Osobe.Where(o => o.OsobaId == Id).FirstOrDefault();
-
-            return View(os);
+            return View(_context.Osobe.Where(o => o.OsobaId == Id).FirstOrDefault());
         }
 
-        public ActionResult DohvatiSliku(int Id) // controller za zvanje slike iz baze podataka, izmijeniti logiku za slučaj kada nema slike
+        public ActionResult DohvatiSliku(int Id) // controller za zvanje slike iz baze podataka
         {
-            var stream = (from m in _context.Osobe where m.OsobaId == Id select m.Slika).FirstOrDefault();
 
-            return File(stream, "image/jpeg");
+            var stream = (from m in _context.Osobe where m.OsobaId == Id select m.Slika).FirstOrDefault();
+            if (stream != null)
+            {
+                return File(stream, "image/jpeg");
+            }
+            else
+                return View(_context.Osobe.Where(o => o.OsobaId == Id).FirstOrDefault());
         }
     }
 }
