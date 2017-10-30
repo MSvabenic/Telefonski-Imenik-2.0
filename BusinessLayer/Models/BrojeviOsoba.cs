@@ -19,7 +19,7 @@ namespace TelefonskiImenik.Models
 
         public virtual BrojTip BrojTip { get; set; }
 
-        public int Broj { get; set; }
+        public string Broj { get; set; }
 
         public string Opis { get; set; }
     }

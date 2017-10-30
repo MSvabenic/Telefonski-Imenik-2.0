@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using TelefonskiImenik.Models;
 
 namespace TelefonskiImenik.ViewModels
@@ -28,7 +25,7 @@ namespace TelefonskiImenik.ViewModels
 
         public IEnumerable<BrojTip> TipBroja { get; set; }
 
-        public int Broj { get; set; }
+        public string Broj { get; set; }
 
         [DisplayName("Opis broja")]
         public string OpisBroja { get; set; }
