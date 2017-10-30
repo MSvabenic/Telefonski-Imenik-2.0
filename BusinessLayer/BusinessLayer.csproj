@@ -83,6 +83,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="ApplicationUser.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BrojeviOsoba.cs" />
     <Compile Include="Models\BrojTip.cs" />

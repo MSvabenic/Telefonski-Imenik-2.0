@@ -53,8 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="ApplicationUser.cs" />
     <Compile Include="Migrations\201710302131324_Initial.cs" />
     <Compile Include="Migrations\201710302131324_Initial.Designer.cs">
       <DependentUpon>201710302131324_Initial.cs</DependentUpon>
