@@ -7,8 +7,8 @@
     <ProjectGuid>{1BAE450B-29D4-46E4-9B46-1A86A72A1348}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Modeli</RootNamespace>
-    <AssemblyName>Modeli</AssemblyName>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -105,9 +105,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\Modeli.csproj">
+    <ProjectReference Include="..\Models\Models.csproj">
       <Project>{1bae450b-29d4-46e4-9b46-1a86a72a1348}</Project>
-      <Name>Modeli</Name>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
