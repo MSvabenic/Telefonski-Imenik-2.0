@@ -18,72 +18,8 @@ namespace TelefonskiImenik.Controllers
         // GET: DodajOsobu
         public ActionResult Create()
         {
-            var viewModel = new UnosBrojaViewModel
-            {
-                TipBroja = _context.BrojTipovi.ToList()
-            };
+            var viewModel = new UnosBrojaViewModel();
             return View(viewModel);
-        }
-
-        [HttpPost]
-        public ActionResult Create(UnosBrojaViewModel viewModel, HttpPostedFileBase upload)
-        {
-
-            if (upload != null && upload.ContentLength > 0)              // provjera postoji li slika(file)
-            {
-                var file = Request.Files[0];                            // kod za spremanje slike u bazu podataka
-                var content = new byte[file.ContentLength];             
-                file.InputStream.Read(content, 0, file.ContentLength);
-                viewModel.Slika = content;
-            }
-
-            if (!ModelState.IsValid)  // provjera modela, ako je ok sprema, ako nije vraća natrag original model
-            {
-                viewModel.TipBroja = _context.BrojTipovi.ToList();
-                return View("Create", viewModel);
-            }
-
-            Osoba os = new Osoba()  // instanciranje objekta osoba, parent tablica
-            {
-                Ime = viewModel.Ime,
-                Prezime = viewModel.Prezime,
-                Grad = viewModel.Grad,
-                Opis = viewModel.Opis,
-                Slika = viewModel.Slika
-            };
-
-            _context.Osobe.Add(os);
-            _context.SaveChanges();
-
-            BrojeviOsoba bo = new BrojeviOsoba()  // instanciranje objekta brojevi osoba, child tablica
-            {
-                OsobaId = os.OsobaId, // id iz tablice osoba
-                BrojTipId = viewModel.BrojTip,
-                Broj = viewModel.Broj,
-                Opis = viewModel.OpisBroja
-            };
-
-            _context.BrojeviOsobe.Add(bo);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult Details(int Id)
-        {
-            return View(_context.Osobe.Where(o => o.OsobaId == Id).FirstOrDefault());
-        }
-
-        public ActionResult DohvatiSliku(int Id) // controller za zvanje slike iz baze podataka
-        {
-
-            var stream = (from m in _context.Osobe where m.OsobaId == Id select m.Slika).FirstOrDefault();
-            if (stream != null)
-            {
-                return File(stream, "image/jpeg");
-            }
-            else
-                return View(_context.Osobe.Where(o => o.OsobaId == Id).FirstOrDefault());
         }
     }
 }
