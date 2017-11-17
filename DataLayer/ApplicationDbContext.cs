@@ -17,7 +17,7 @@ namespace TelefonskiImenik.Models
         public DbSet<BrojeviOsoba> BrojeviOsobe { get; set; }
 
         public ApplicationDbContext()
-                : base("DefaultConnection", throwIfV1Schema: false)
+                : base("TelefonskiImenik", throwIfV1Schema: false)
             {
             }
 

@@ -85,9 +85,9 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Migrations\201710302131324_Initial.cs" />
-    <Compile Include="Migrations\201710302131324_Initial.Designer.cs">
-      <DependentUpon>201710302131324_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201711171545016_InicijalnaMigracija.cs" />
+    <Compile Include="Migrations\201711171545016_InicijalnaMigracija.Designer.cs">
+      <DependentUpon>201711171545016_InicijalnaMigracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,11 +97,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710302131324_Initial.resx">
-      <DependentUpon>201710302131324_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +104,11 @@
       <Project>{1bae450b-29d4-46e4-9b46-1a86a72a1348}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711171545016_InicijalnaMigracija.resx">
+      <DependentUpon>201711171545016_InicijalnaMigracija.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

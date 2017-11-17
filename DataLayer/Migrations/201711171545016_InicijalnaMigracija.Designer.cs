@@ -6,14 +6,14 @@ namespace DataLayer.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Initial : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class InicijalnaMigracija : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InicijalnaMigracija));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710302131324_Initial"; }
+            get { return "201711171545016_InicijalnaMigracija"; }
         }
         
         string IMigrationMetadata.Source
