@@ -3,28 +3,23 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using TelefonskiImenik.Models;
 
-namespace TelefonskiImenik.ViewModels
+namespace Models.ViewModels
 {
-    public class UnosBrojaViewModel
+    public class BrojViewModel
     {
 
-        [Required]
-        public string Ime { get; set; }
+        [DisplayName("Osoba")]
+        public int OsobaId { get; set; }
 
-        [Required]
-        public string Prezime { get; set; }
-
-        public string Grad { get; set; }
-
-        public string Opis { get; set; }
-
-        public byte[] Slika { get; set; }
+        public IEnumerable<Osoba> Osobe { get; set; }
 
         [DisplayName("Tip broja telefona")]
+        [Required(ErrorMessage ="Tip broja je obvezan za unos.")]
         public int BrojTip { get; set; }
 
         public IEnumerable<BrojTip> TipBroja { get; set; }
 
+        [Required(ErrorMessage = "Broja je obvezan za unos.")]
         public string Broj { get; set; }
 
         [DisplayName("Opis broja")]

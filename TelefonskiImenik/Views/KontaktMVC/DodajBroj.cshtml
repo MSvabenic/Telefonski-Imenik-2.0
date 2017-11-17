@@ -1,0 +1,30 @@
+﻿@model Models.ViewModels.BrojViewModel
+@{
+    ViewBag.Title = "Dodaj broj";
+}
+
+@using (Ajax.BeginForm("DodajBroj", "Kontakti", null, new AjaxOptions
+{ }, new { id = "forma1", name = "forma1", enctype = "form-data" }))
+{
+
+    <div class:"form-group">
+        @Html.LabelFor(m => m.OsobaId)
+        @Html.DropDownListFor(m => m.OsobaId, new SelectList(ViewBag.punoime, "Id", "punoime"), "", new { id = "osobaId", @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.ValidationMessageFor(m => m.BrojTip, "", new { @class = "text-danger" }) <br />
+        @Html.LabelFor(m => m.BrojTip)
+        @Html.DropDownListFor(m => m.BrojTip, new SelectList(Model.TipBroja, "BrojTipId", "Naziv"), "", new { id = "brojTipId", @class = "form-control" })
+    </div>
+    <div class:"form-group">
+        @Html.ValidationMessageFor(m => m.Broj, "", new { @class = "text-danger" }) <br />
+        @Html.LabelFor(m => m.Broj)
+        @Html.TextBoxFor(m => m.Broj, new { id = "broj", @class = "form-control", Value = "" })
+    </div>
+    <div class:"form-group">
+        @Html.LabelFor(m => m.OpisBroja)
+        @Html.TextAreaFor(m => m.OpisBroja, new { id = "opis", @class = "form-control" })
+    </div>
+    <button id="btn1" name="spremi" type="submit" class="btn btn-primary">Spremi</button>
+
+}

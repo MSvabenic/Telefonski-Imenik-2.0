@@ -89,7 +89,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Osoba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\UnosBrojaViewModel.cs" />
+    <Compile Include="ViewModels\BrojViewModel.cs" />
+    <Compile Include="ViewModels\OsobaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

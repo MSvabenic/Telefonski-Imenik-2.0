@@ -201,7 +201,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\KontaktController.cs" />
-    <Compile Include="Controllers\DodajOsobuController.cs" />
+    <Compile Include="Controllers\KontaktMVCController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -265,8 +265,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\DodajOsobu\Create.cshtml" />
-    <Content Include="Views\DodajOsobu\Details.cshtml" />
+    <Content Include="Views\KontaktMVC\DodajOsobu.cshtml" />
+    <Content Include="Views\KontaktMVC\DodajBroj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
