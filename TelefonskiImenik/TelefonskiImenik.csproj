@@ -267,6 +267,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\KontaktMVC\DodajOsobu.cshtml" />
     <Content Include="Views\KontaktMVC\DodajBroj.cshtml" />
+    <Content Include="Views\KontaktMVC\DohvatiOsobe.cshtml" />
+    <Content Include="Views\KontaktMVC\BrojeviOsoba.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

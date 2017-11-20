@@ -1,0 +1,75 @@
+﻿@Styles.Render("~/Content/Site.css")
+
+@{
+    ViewBag.Title = "Detalji kontakta";
+}
+
+<h2>Detalji</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <dl class="dl-horizontal">
+                <dt>Ime:</dt>
+                <dd id="1"></dd>
+                <dt>Prezime:</dt>
+                <dd id="2"></dd>
+                <dt>Grad:</dt>
+                <dd id="3"></dd>
+                <dt>Opis:</dt>
+                <dd id="4"></dd>
+            </dl>
+        </div>
+        <div class="col-lg-6">
+            <div class="jumbotron">
+                Ovdje će ići slika!!!
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-horizontal">
+    <table id="tab1" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tip broja</th>
+                <th>Broj</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    var url = location.pathname.split('/')[3]; // uzima id iz URL-a da ga može proslijediti u getJSON kao varijablu.
+
+    $(document).ready(function () {
+        $.getJSON("http://localhost:51809/api/Kontakt/GetOsoba/id", { id: url },
+            function (data) {
+                $('#lista1').empty();
+                $.each(data, function (i, item) {
+                    $("<dd>").html(item.Ime).appendTo("#1")
+                    $("<dd>").html(item.Prezime).appendTo("#2")
+                    $("<dd>").html(item.Grad).appendTo("#3")
+                    $("<dd>").html(item.Opis).appendTo("#4")
+                });
+            });
+    });
+
+
+    $(document).ready(function () {
+        $.getJSON("http://localhost:51809/api/Kontakt/GetBroj/id", { id: url },
+            function (json) {
+                var tr;
+                for (var i = 0; i < json.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + json[i].BrojTip + "</td>");
+                    tr.append("<td>" + json[i].Broj + "</td>");
+                    tr.append("<td>" + json[i].OpisBroja + "</td>");
+                    $('#tab1').append(tr);
+                }
+            });
+    });
+</script>

@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Svi kontakti";
+}
+
+<h2>Detalji</h2>
+
+<div class="form-horizontal">
+    <table id="osobe" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>OsobaId</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Grad</th>
+                <th>Opcije</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script type="text/javascript" language="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.getJSON("http://localhost:51809/api/Kontakt/GetOsobe",
+            function (json) {
+                var tr;
+                for (var i = 0; i < json.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + json[i].OsobaId + "</td>");
+                    tr.append("<td>" + json[i].Ime + "</td>");
+                    tr.append("<td>" + json[i].Prezime + "</td>");
+                    tr.append("<td>" + json[i].Grad + "</td>");
+                    tr.append("<td>" + json[i].Opcije + "</td>");
+                    $('table').append(tr);
+                }
+                var table = $('#osobe').DataTable({
+                    "oLanguage": {
+                        "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Croatian.json"
+                    },
+                    "columnDefs": [{
+                        "targets": -1,
+                        "data": null,
+                        "defaultContent": "<a>Detalji</a>"
+                    },
+                    {
+                            "targets": [0],
+                            "visible": false
+                    }]
+
+                });
+                     var id;
+                    $('#osobe tbody').on('click', 'tr', function () {
+                        $(this).toggleClass('selected');
+                    });
+
+                    $('#osobe tbody').on('click', 'tr', function () {
+
+                        id = table.row(this).data()[0];
+                        //window.location.href = "http://localhost:51809/KontaktMVC/BrojeviOsoba/" + id;
+                    });
+
+                    $('#osobe tbody').on('click', 'a', function () {
+                        window.location.href = "http://localhost:51809/KontaktMVC/BrojeviOsoba/" + id;
+                    });
+            });
+
+    });
+</script>

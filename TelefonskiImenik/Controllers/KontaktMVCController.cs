@@ -38,5 +38,15 @@ namespace TelefonskiImenik.Controllers
             };
             return View(viewModel);
         }
+
+        public ActionResult BrojeviOsoba(int id)
+        {
+            return View();
+        }
+
+        public ActionResult DohvatiOsobe()
+        {
+            return View();
+        }
     }
 }

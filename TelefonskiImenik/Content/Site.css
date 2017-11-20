@@ -67,3 +67,11 @@ h6,
 .btn {
 margin-top:10px;
 }
+/*Osoba detalji*/
+.dl-horizontal dd {
+    margin-left: 60px;
+}
+
+.dl-horizontal dt {
+    width: 75px;
+}
