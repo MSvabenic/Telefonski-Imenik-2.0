@@ -5,7 +5,7 @@
 
 <h2>Dodaj osobu</h2>
 
-@using (Ajax.BeginForm("DodajBroj", "Kontakti", null, new AjaxOptions
+@using (Ajax.BeginForm("DodajBroj", "KontaktMVC", null, new AjaxOptions
 { }, new { id = "forma1", name = "forma1", enctype = "multipart/form-data" }))
 {
     <div class:"form-group">
@@ -39,7 +39,31 @@
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
-    $("#slika").change(function () {
+    $("#slika").change(function () {                //funkcija koja ispisuje naziv slike
         $("#slikaTekst").text(this.files[0].name);
     });
+
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            var osoba = new Object();
+            osoba.Ime = $("#ime").val();
+            osoba.Prezime = $("#prezime").val();
+            osoba.Grad = $("#grad").val();
+            osoba.Opis = $("#opis").val();
+            $.ajax({
+                url: "http://localhost:51809/api/Kontakt/DodajOsobu",
+                type: "POST",
+                datatype: 'JSON',
+                data: osoba,
+                async: false,
+                success: function (data) {
+                    alert('Uspješno spremljeno!');
+                },
+                error: function () { alert("Obvezna polja nisu ispunjena"); }
+            });
+        });
+    });
 </script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
