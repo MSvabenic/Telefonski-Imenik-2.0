@@ -45,6 +45,23 @@ namespace TelefonskiImenik.Controllers.API
         }
 
         /*---------------------------------------------------------------------------------------------------*/
+
+        [Route("api/Kontakt/GetOsobaSlika/{id}")]
+        [HttpGet]
+        public HttpResponseMessage GetOsobaSlika(int id)
+        {
+            var osoba = _context.Osobe.Where(x => x.OsobaId == id).Select(x => new { x.Slika }).ToList();
+            if (osoba != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, osoba);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Osoba nema sliku.");
+            }
+        }
+
+        /*---------------------------------------------------------------------------------------------------*/
         [Route("api/Kontakt/GetOsobe")]
         [HttpGet]
         public HttpResponseMessage GetOsobe()

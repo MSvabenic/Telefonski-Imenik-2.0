@@ -53,7 +53,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Raleway', sans-serif;
     font-weight: 300;
     line-height: 1.1;
 }
@@ -70,8 +70,14 @@ margin-top:10px;
 /*Osoba detalji*/
 .dl-horizontal dd {
     margin-left: 60px;
+    font-size: large;
 }
 
 .dl-horizontal dt {
-    width: 75px;
+    width: 95px;
+    font-size: large;
+}
+
+.img-thumbnail {
+    margin-bottom:20px;
 }

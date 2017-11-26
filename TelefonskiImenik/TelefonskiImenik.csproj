@@ -273,6 +273,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\DetaljiKontakta.js" />
+    <Content Include="Scripts\Custom\DodajBroj.js" />
+    <Content Include="Scripts\Custom\DodajOsobu.js" />
+    <Content Include="Scripts\Custom\SviKontakti.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -317,11 +321,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\KontaktMVC\DodajOsobu.cshtml" />
     <Content Include="Views\KontaktMVC\DodajBroj.cshtml" />
-    <Content Include="Views\KontaktMVC\DohvatiOsobe.cshtml" />
-    <Content Include="Views\KontaktMVC\BrojeviOsoba.cshtml" />
+    <Content Include="Views\KontaktMVC\SviKontakti.cshtml" />
+    <Content Include="Views\KontaktMVC\DetaljiKontakta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Slike\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

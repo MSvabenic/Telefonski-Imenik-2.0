@@ -15,7 +15,6 @@ namespace TelefonskiImenik.Controllers
             _context = new ApplicationDbContext();
         }
 
-        // GET: DodajOsobu
         public ActionResult DodajOsobu()
         {
             var viewModel = new OsobaViewModel();
@@ -39,12 +38,12 @@ namespace TelefonskiImenik.Controllers
             return View(viewModel);
         }
 
-        public ActionResult BrojeviOsoba(int id)
+        public ActionResult DetaljiKontakta(int id)
         {
             return View();
         }
 
-        public ActionResult DohvatiOsobe()
+        public ActionResult SviKontakti()
         {
             return View();
         }
