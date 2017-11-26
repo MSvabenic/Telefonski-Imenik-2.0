@@ -10,6 +10,7 @@
 {
 
     <div class:"form-group">
+        @Html.ValidationMessageFor(m => m.OsobaId, "", new { @class = "text-danger" }) <br />
         @Html.LabelFor(m => m.OsobaId)
         @Html.DropDownListFor(m => m.OsobaId, new SelectList(ViewBag.punoime, "Id", "punoime"), "", new { id = "osobaId", @class = "form-control" })
     </div>
@@ -33,3 +34,7 @@
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/Custom/DodajBroj.js"></script>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

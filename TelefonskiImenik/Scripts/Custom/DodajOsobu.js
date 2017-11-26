@@ -12,15 +12,15 @@
         osoba.Opis = $("#opis").val();
         osoba.Slika = slikabo;
         $.ajax({
-            url: "http://localhost:51809/api/Kontakt/DodajOsobu",
+            url: "api/Kontakt/DodajOsobu",
             type: "POST",
             datatype: 'json',
             contentType: "application/json",
             data: JSON.stringify(osoba),
             success: function (data) {
                 alert('Uspješno spremljeno');
-            },
-            error: function () { alert("Obvezna polja nisu ispunjena"); }
+
+            }
         });
     });
 });

@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $.getJSON("http://localhost:51809/api/Kontakt/GetOsobe",
+    $.getJSON("api/Kontakt/GetOsobe",
         function (json) {
             var tr;
             for (var i = 0; i < json.length; i++) {
@@ -38,7 +38,7 @@
             });
             $('#osobe tbody').on('click', 'i', function () {
                 var id = table.row($(this).parents('tr')).data()[0];
-                window.location.href = "http://localhost:51809/KontaktMVC/DetaljiKontakta/" + id;
+                window.location.href = "/KontaktMVC/DetaljiKontakta/" + id;
             });
         });
 

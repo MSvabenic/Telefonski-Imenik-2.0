@@ -9,6 +9,7 @@ namespace Models.ViewModels
     {
 
         [DisplayName("Osoba")]
+        [Required(ErrorMessage = "Obvezno je odabrati osobu.")]
         public int OsobaId { get; set; }
 
         public IEnumerable<Osoba> Osobe { get; set; }
@@ -19,7 +20,7 @@ namespace Models.ViewModels
 
         public IEnumerable<BrojTip> TipBroja { get; set; }
 
-        [Required(ErrorMessage = "Broja je obvezan za unos.")]
+        [Required(ErrorMessage = "Broj je obvezan za unos.")]
         public string Broj { get; set; }
 
         [DisplayName("Opis broja")]
