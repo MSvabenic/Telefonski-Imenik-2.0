@@ -66,13 +66,25 @@ namespace TelefonskiImenik.Controllers.API
         [HttpGet]
         public HttpResponseMessage GetOsobe()
         {
-            var osoba = from oso in _context.Osobe
-                        group oso by new
+            var svibrojevi = from bro in _context.BrojeviOsobe.ToList()
+                        group bro by bro.OsobaId into g
+                        select new
                         {
-                            oso.Ime,
-                            oso.Prezime
-                        } into os
-                        select os.FirstOrDefault();
+                            OsobaId = g.Key,
+                            Broj = string.Join(",", g.Select(x => x.Broj))
+                        };
+
+            var osoba = from brojevi in svibrojevi
+                        join osobe in _context.Osobe on brojevi.OsobaId equals osobe.OsobaId
+                        select new
+                        {
+                            OsobaId = osobe.OsobaId,
+                            Ime = osobe.Ime,
+                            Prezime = osobe.Prezime,
+                            Grad = osobe.Grad,
+                            Broj = brojevi.Broj
+                        };
+
             return Request.CreateResponse(HttpStatusCode.OK, osoba);
         }
 

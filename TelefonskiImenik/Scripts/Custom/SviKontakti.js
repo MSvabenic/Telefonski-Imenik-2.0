@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $.getJSON("api/Kontakt/GetOsobe",
+    $.getJSON("/api/Kontakt/GetOsobe",
         function (json) {
             var tr;
             for (var i = 0; i < json.length; i++) {
@@ -8,6 +8,7 @@
                 tr.append("<td>" + json[i].Ime + "</td>");
                 tr.append("<td>" + json[i].Prezime + "</td>");
                 tr.append("<td>" + json[i].Grad + "</td>");
+                tr.append("<td>" + json[i].Broj + "</td>");
                 tr.append("<td>" + json[i].Opcije + "</td>");
                 $('table').append(tr);
             }
