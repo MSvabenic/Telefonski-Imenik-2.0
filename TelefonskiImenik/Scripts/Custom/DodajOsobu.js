@@ -12,7 +12,7 @@
         osoba.Opis = $("#opis").val();
         osoba.Slika = slikabo;
         $.ajax({
-            url: "api/Kontakt/DodajOsobu",
+            url: "/api/Kontakt/DodajOsobu",
             type: "POST",
             datatype: 'json',
             contentType: "application/json",
