@@ -18,8 +18,10 @@
             contentType: "application/json",
             data: JSON.stringify(osoba),
             success: function (data) {
-                alert('Uspješno spremljeno');
-
+                alert('Uspješno spremljeno!')
+            },
+            error: function () {
+                alert('Nešto je pošlo po krivu, molim pokušaj ponovno!')
             }
         });
     });

@@ -13,7 +13,10 @@
             data: JSON.stringify(broj),
             success: function (data) {
                 alert('Uspješno spremljeno');
-            } 
+            },
+            error: function () {
+                alert('Nešto je pošlo po krivu, molim pokušaj ponovno!')
+            }
         });
     });
 });
