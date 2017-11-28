@@ -10,35 +10,38 @@
         osoba.Prezime = $("#prezime").val();
         osoba.Grad = $("#grad").val();
         osoba.Opis = $("#opis").val();
-        osoba.Slika = slikabo;
+        osoba.Slika = slikaBin;
         $.ajax({
             url: "/api/Kontakt/DodajOsobu",
+            processData: false,
             type: "POST",
             datatype: 'json',
             contentType: "application/json",
             data: JSON.stringify(osoba),
             success: function (data) {
-                alert('Uspješno spremljeno!')
+                alert('Uspješno spremljeno!'),
+                window.location.href = "/KontaktMVC/DodajBroj";
             },
-            error: function () {
-                alert('Nešto je pošlo po krivu, molim pokušaj ponovno!')
+            error: function (data) {
+                alert('Nešto je pošlo po krivu, molim pokušaj ponovno!'),
+                window.setTimeout(window.location.reload.bind(window.location), 300);
             }
         });
     });
 });
 
-var slikabo;
+var slikaBin;
 
-var handleFileSelect = function (evt) {
-    var files = evt.target.files;
+var uploadSlike = function (data) {
+    var files = data.target.files;
     var file = files[0];
 
     if (files && file) {
         var reader = new FileReader();
 
-        reader.onload = function (readerEvt) {
-            var binaryString = readerEvt.target.result;
-            slikabo = btoa(binaryString);
+        reader.onload = function (dataReader) {
+            var binaryString = dataReader.target.result;
+            slikaBin = btoa(binaryString);
         };
 
         reader.readAsBinaryString(file);
@@ -46,5 +49,5 @@ var handleFileSelect = function (evt) {
 };
 
 if (window.File && window.FileReader && window.FileList && window.Blob) {
-    document.getElementById('slika').addEventListener('change', handleFileSelect, false);
+    document.getElementById('slika').addEventListener('change', uploadSlike, false);
 }

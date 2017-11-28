@@ -5,10 +5,8 @@
 
 <h2>Dodaj broj</h2>
 
-@using (Ajax.BeginForm("DodajBroj", "KontaktMVC", null, new AjaxOptions
-{ }, new { id = "forma1", name = "forma1", enctype = "form-data" }))
-{
 
+<form class="form-horizontal" id="forma1" name="forma1" enctype="multipart/form-data">
     <div class:"form-group">
         @Html.ValidationMessageFor(m => m.OsobaId, "", new { @class = "text-danger" }) <br />
         @Html.LabelFor(m => m.OsobaId)
@@ -29,8 +27,7 @@
         @Html.TextAreaFor(m => m.OpisBroja, new { id = "opis", @class = "form-control" })
     </div>
     <button id="btn1" name="spremi" type="submit" class="btn btn-primary">Spremi</button>
-
-}
+</form>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/Custom/DodajBroj.js"></script>
