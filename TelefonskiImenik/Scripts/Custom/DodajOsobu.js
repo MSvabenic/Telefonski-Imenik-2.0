@@ -4,7 +4,7 @@
         $("#slikaTekst").text(this.files[0].name);
     });
 
-    $("#btn1").click(function () {
+    $("#forma1").submit(function (e) {
         var osoba = new Object();
         osoba.Ime = $("#ime").val();
         osoba.Prezime = $("#prezime").val();
@@ -16,16 +16,15 @@
             processData: false,
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(osoba),
-            success: function () {
-                alert('Uspješno spremljeno!'),
+            data: JSON.stringify(osoba)     
+        }).done(function () {
+            alert('Uspješno spremljeno!'),
                 window.location.href = "/KontaktMVC/DodajBroj";
-            },
-            error: function () {
-                alert('Nešto je pošlo po krivu, molim pokušaj ponovno!'),
+        }).fail(function () {
+            alert('Nešto je pošlo po krivu, molim pokušaj ponovno!'),
                 window.setTimeout(window.location.reload.bind(window.location), 300);
-            }
         });
+        e.preventDefault();
     });
 });
 
