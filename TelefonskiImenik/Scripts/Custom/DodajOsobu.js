@@ -16,7 +16,7 @@
             processData: false,
             type: "POST",
             datatype: 'json',
-            contentType: "application/json",
+            contentType: "application/json; charset=utf-8",
             data: JSON.stringify(osoba),
             success: function (data) {
                 alert('Uspješno spremljeno!'),

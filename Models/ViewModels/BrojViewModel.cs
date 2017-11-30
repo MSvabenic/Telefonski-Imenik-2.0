@@ -20,6 +20,7 @@ namespace Models.ViewModels
 
         public IEnumerable<BrojTip> TipBroja { get; set; }
 
+        [RegularExpression("([0-9]+)", ErrorMessage = "Dozvoljeni su samo brojevi!")]
         [Required(ErrorMessage = "Broj je obvezan za unos.")]
         public string Broj { get; set; }
 
