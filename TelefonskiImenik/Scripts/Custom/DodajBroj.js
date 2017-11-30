@@ -9,8 +9,7 @@
             url: "/api/Kontakt/DodajBroj",
             processData: false,
             type: "POST",
-            datatype: 'json',
-            contentType: "application/json;; charset=utf-8",
+            contentType: "application/json; charset=utf-8",
             data: JSON.stringify(broj),
             success: function (data) {
                 alert('Uspješno spremljeno!'),
@@ -19,7 +18,7 @@
             error: function (data) {
                 alert('Nešto je pošlo po krivu, molim pokušaj ponovno!'),
                     window.setTimeout(window.location.reload.bind(window.location), 300);
-            }
+            } 
         });
     });
 });
