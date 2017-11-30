@@ -11,11 +11,11 @@
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(broj),
-            success: function (data) {
+            success: function () {
                 alert('Uspješno spremljeno!'),
                     window.location.href = "/KontaktMVC/DodajBroj";
             },
-            error: function (data) {
+            error: function () {
                 alert('Nešto je pošlo po krivu, molim pokušaj ponovno!'),
                     window.setTimeout(window.location.reload.bind(window.location), 300);
             } 
