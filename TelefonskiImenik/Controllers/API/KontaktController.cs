@@ -22,7 +22,7 @@ namespace TelefonskiImenik.Controllers.API
         /*---------------------------------------------------------------------------------------------------*/
         [Route("api/Kontakt/GetBroj/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetBroj([FromUri]int id)
+        public IHttpActionResult GetBroj([FromUri]int id)
         {
             var broj = (from brojevi in _context.BrojeviOsobe
                         join brojtip in _context.BrojTipovi on brojevi.BrojTipId equals brojtip.BrojTipId
@@ -36,11 +36,11 @@ namespace TelefonskiImenik.Controllers.API
 
             if (broj != null)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, broj);
+                return Ok(broj);
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Zapis ne postoji u bazi podataka.");
+                return BadRequest();
             }
         }
 
@@ -48,31 +48,31 @@ namespace TelefonskiImenik.Controllers.API
 
         [Route("api/Kontakt/GetOsobaSlika/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetOsobaSlika(int id)
+        public IHttpActionResult GetOsobaSlika(int id)
         {
             var osoba = _context.Osobe.Where(x => x.OsobaId == id).Select(x => new { x.Slika }).ToList();
             if (osoba != null)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, osoba);
+                return Ok(osoba);
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Osoba nema sliku.");
+                return BadRequest();
             }
         }
 
         /*---------------------------------------------------------------------------------------------------*/
         [Route("api/Kontakt/GetOsobe")]
         [HttpGet]
-        public HttpResponseMessage GetOsobe()
+        public IHttpActionResult GetOsobe()
         {
             var svibrojevi = from bro in _context.BrojeviOsobe.ToList()
-                        group bro by bro.OsobaId into g
-                        select new
-                        {
-                            OsobaId = g.Key,
-                            Broj = string.Join(",", g.Select(x => x.Broj))
-                        };
+                             group bro by bro.OsobaId into g
+                             select new
+                             {
+                                 OsobaId = g.Key,
+                                 Broj = string.Join(",", g.Select(x => x.Broj))
+                             };
 
             var osoba = from brojevi in svibrojevi
                         join osobe in _context.Osobe on brojevi.OsobaId equals osobe.OsobaId
@@ -85,59 +85,58 @@ namespace TelefonskiImenik.Controllers.API
                             Broj = brojevi.Broj
                         };
 
-            return Request.CreateResponse(HttpStatusCode.OK, osoba);
+            return Ok(osoba);
         }
 
         /*---------------------------------------------------------------------------------------------------*/
         [Route("api/Kontakt/GetOsoba/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetOsoba(int id)
+        public IHttpActionResult GetOsoba(int id)
         {
             var osoba = _context.Osobe.Where(x => x.OsobaId == id).Select(x => new { x.Ime, x.Prezime, x.Grad, x.Opis }).ToList();
             if (osoba != null)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, osoba);
+                return Ok(osoba);
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Osoba ne postoji u bazi podataka.");
+                return BadRequest();
             }
         }
 
         /*---------------------------------------------------------------------------------------------------*/
         [Route("api/Kontakt/DodajBroj")]
         [HttpPost]
-        public HttpResponseMessage DodajBroj([FromBody]BrojeviOsoba broj)
+        public IHttpActionResult DodajBroj([FromBody]BrojeviOsoba broj)
         {
-            try
+            if (ModelState.IsValid)
             {
                 _context.BrojeviOsobe.Add(broj);
                 _context.SaveChanges();
 
-                return Request.CreateResponse(HttpStatusCode.Created, broj);
-
+                return Ok(broj);
             }
-            catch (Exception ex)
+            else
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return BadRequest(ModelState);
             }
         }
 
         /*---------------------------------------------------------------------------------------------------*/
         [Route("api/Kontakt/DodajOsobu")]
         [HttpPost]
-        public HttpResponseMessage DodajOsobu([FromBody]Osoba osoba)
+        public IHttpActionResult DodajOsobu([FromBody]Osoba osoba)
         {
-            try
+            if (ModelState.IsValid)
             {
                 _context.Osobe.Add(osoba);
                 _context.SaveChanges();
 
-                return Request.CreateResponse(HttpStatusCode.Created, osoba);
+                return Ok(osoba);
             }
-            catch (Exception ex)
+            else
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return BadRequest(ModelState);
             }
         }
     }

@@ -20,6 +20,7 @@ namespace TelefonskiImenik.Models
         [Required]
         public string Prezime { get; set; }
 
+        [Required]
         public string Grad { get; set; }
 
         [MaxLength(255)]
