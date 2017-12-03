@@ -24,7 +24,7 @@
                     {
                         "targets": -1,
                         "data": null,
-                        render: function (data, type, row) {
+                        "render": function () {
 
                             return '<i class="fa fa-eye fa-2x" aria-hidden="true"></i>';
 
@@ -38,7 +38,7 @@
 
             });
             $('#osobe tbody').on('click', 'i', function () {
-                var id = table.row($(this).parents('tr')).data()[0];
+                var id = table.row($(this).parents('tr')).data()[0]; // dohvaća vrijednost skrivene ćelije u tablici 
                 window.location.href = "/KontaktMVC/DetaljiKontakta/" + id;
             });
         });

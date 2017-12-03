@@ -5,7 +5,6 @@ var data;
 $(document).ready(function () {
     $.getJSON("/api/Kontakt/GetOsoba/id", { id: url },
         function (json) {
-            $('#lista1').empty();
             $.each(json, function (i, item) {
                 $("<dd>").html(item.Ime).appendTo("#1");
                 $("<dd>").html(item.Prezime).appendTo("#2");
