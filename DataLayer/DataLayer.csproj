@@ -99,9 +99,9 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Migrations\201711171545016_InicijalnaMigracija.cs" />
-    <Compile Include="Migrations\201711171545016_InicijalnaMigracija.Designer.cs">
-      <DependentUpon>201711171545016_InicijalnaMigracija.cs</DependentUpon>
+    <Compile Include="Migrations\201712032103301_Inicijalna.cs" />
+    <Compile Include="Migrations\201712032103301_Inicijalna.Designer.cs">
+      <DependentUpon>201712032103301_Inicijalna.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,8 +120,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711171545016_InicijalnaMigracija.resx">
-      <DependentUpon>201711171545016_InicijalnaMigracija.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712032103301_Inicijalna.resx">
+      <DependentUpon>201712032103301_Inicijalna.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

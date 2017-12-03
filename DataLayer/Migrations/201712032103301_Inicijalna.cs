@@ -3,7 +3,7 @@ namespace DataLayer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InicijalnaMigracija : DbMigration
+    public partial class Inicijalna : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,7 @@ namespace DataLayer.Migrations
                         BrojeviOsobaId = c.Int(nullable: false, identity: true),
                         OsobaId = c.Int(nullable: false),
                         BrojTipId = c.Int(nullable: false),
-                        Broj = c.String(),
+                        Broj = c.String(nullable: false),
                         Opis = c.String(),
                     })
                 .PrimaryKey(t => t.BrojeviOsobaId)
@@ -39,7 +39,7 @@ namespace DataLayer.Migrations
                         OsobaId = c.Int(nullable: false, identity: true),
                         Ime = c.String(nullable: false),
                         Prezime = c.String(nullable: false),
-                        Grad = c.String(),
+                        Grad = c.String(nullable: false),
                         Opis = c.String(maxLength: 255),
                         Slika = c.Binary(),
                     })
