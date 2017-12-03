@@ -11,15 +11,15 @@ namespace TelefonskiImenik.Models
     public class BrojeviOsoba
     {
         public int BrojeviOsobaId { get; set; }
-       
+
+        [Required]
         public int OsobaId { get; set; }
 
-        [Required]
         public virtual Osoba Osoba{ get; set; }
-       
-        public int BrojTipId { get; set; }
 
         [Required]
+        public int BrojTipId { get; set; }
+
         public virtual BrojTip BrojTip { get; set; }
 
         [Required]
