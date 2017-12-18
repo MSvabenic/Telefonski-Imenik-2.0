@@ -10,12 +10,12 @@
     <div class:"form-group">
         @Html.ValidationMessageFor(m => m.OsobaId, "", new { @class = "text-danger" }) <br />
         @Html.LabelFor(m => m.OsobaId)
-        @Html.DropDownListFor(m => m.OsobaId, new SelectList(ViewBag.punoime, "Id", "punoime"), "", new { id = "osobaId", @class = "form-control" })
+        @Html.DropDownListFor(x => x.OsobaId, new SelectList(Enumerable.Empty<SelectListItem>()), new { id = "osobaId", @class = "form-control" })
     </div>
     <div class:"form-group">
         @Html.ValidationMessageFor(m => m.BrojTip, "", new { @class = "text-danger" }) <br />
         @Html.LabelFor(m => m.BrojTip)
-        @Html.DropDownListFor(m => m.BrojTip, new SelectList(Model.TipBroja, "BrojTipId", "Naziv"), "", new { id = "brojTipId", @class = "form-control" })
+        @Html.DropDownListFor(x => x.BrojTip, new SelectList(Enumerable.Empty<SelectListItem>()), new {id = "brojTipId", @class = "form-control" })
     </div>
     <div class:"form-group">
         @Html.ValidationMessageFor(m => m.Broj, "", new { @class = "text-danger" }) <br />

@@ -12,11 +12,35 @@ namespace TelefonskiImenik.Controllers.API
     public class KontaktController : ApiController
     {
         /*---------------------------------------------------------------------------------------------------*/
-        private ApplicationDbContext _context;
+
+        private readonly ApplicationDbContext _context;
+
         /*---------------------------------------------------------------------------------------------------*/
         public KontaktController()
         {
             _context = new ApplicationDbContext();
+        }
+
+        /*---------------------------------------------------------------------------------------------------*/
+
+        [Route("api/Kontakt/GetOsoba")]
+        [HttpGet]
+        public IHttpActionResult GetOsoba()
+        {
+            var osoba = _context.Osobe.Select(x => new { x.OsobaId, x.Ime, x.Prezime }).ToList();
+
+            return Ok(osoba);
+        }
+
+        /*---------------------------------------------------------------------------------------------------*/
+
+        [Route("api/Kontakt/GetTipBroj")]
+        [HttpGet]
+        public IHttpActionResult GetTipBroj()
+        {
+            var tipBroj = _context.BrojTipovi.ToList();
+
+            return Ok(tipBroj);
         }
 
         /*---------------------------------------------------------------------------------------------------*/
@@ -34,14 +58,8 @@ namespace TelefonskiImenik.Controllers.API
                             OpisBroja = brojevi.Opis
                         }).ToList();
 
-            if (broj != null)
-            {
-                return Ok(broj);
-            }
-            else
-            {
-                return BadRequest();
-            }
+
+            return Ok(broj);
         }
 
         /*---------------------------------------------------------------------------------------------------*/
@@ -51,14 +69,8 @@ namespace TelefonskiImenik.Controllers.API
         public IHttpActionResult GetOsobaSlika(int id)
         {
             var osoba = _context.Osobe.Where(x => x.OsobaId == id).Select(x => new { x.Slika }).ToList();
-            if (osoba != null)
-            {
-                return Ok(osoba);
-            }
-            else
-            {
-                return BadRequest();
-            }
+
+            return Ok(osoba);
         }
 
         /*---------------------------------------------------------------------------------------------------*/
@@ -94,14 +106,8 @@ namespace TelefonskiImenik.Controllers.API
         public IHttpActionResult GetOsoba(int id)
         {
             var osoba = _context.Osobe.Where(x => x.OsobaId == id).Select(x => new { x.Ime, x.Prezime, x.Grad, x.Opis }).ToList();
-            if (osoba != null)
-            {
-                return Ok(osoba);
-            }
-            else
-            {
-                return BadRequest();
-            }
+
+            return Ok(osoba);
         }
 
         /*---------------------------------------------------------------------------------------------------*/
