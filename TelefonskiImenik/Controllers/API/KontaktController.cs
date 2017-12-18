@@ -23,6 +23,7 @@ namespace TelefonskiImenik.Controllers.API
 
         /*---------------------------------------------------------------------------------------------------*/
 
+        //metoda koja vraća podatke koji pune dropdown za osobu na view-u DodajBroj
         [Route("api/Kontakt/GetOsoba")]
         [HttpGet]
         public IHttpActionResult GetOsoba()
@@ -34,6 +35,7 @@ namespace TelefonskiImenik.Controllers.API
 
         /*---------------------------------------------------------------------------------------------------*/
 
+        //metoda koja vraća podatke koji pune dropdown za tip broja na view-u DodajBroj
         [Route("api/Kontakt/GetTipBroj")]
         [HttpGet]
         public IHttpActionResult GetTipBroj()
@@ -44,6 +46,8 @@ namespace TelefonskiImenik.Controllers.API
         }
 
         /*---------------------------------------------------------------------------------------------------*/
+
+        //metoda koja vraća podatke za tablicu svih brojeva osobe na view-u DetaljiKontakta
         [Route("api/Kontakt/GetBroj/{id}")]
         [HttpGet]
         public IHttpActionResult GetBroj([FromUri]int id)
@@ -64,6 +68,7 @@ namespace TelefonskiImenik.Controllers.API
 
         /*---------------------------------------------------------------------------------------------------*/
 
+        //metoda koja vraća podatke za sliku osobe na view-u DetaljiKontakta
         [Route("api/Kontakt/GetOsobaSlika/{id}")]
         [HttpGet]
         public IHttpActionResult GetOsobaSlika(int id)
@@ -74,6 +79,8 @@ namespace TelefonskiImenik.Controllers.API
         }
 
         /*---------------------------------------------------------------------------------------------------*/
+
+        //metoda koja vraća podatke za punjenje jQuery datatables tablice na view-u SviKontakti
         [Route("api/Kontakt/GetOsobe")]
         [HttpGet]
         public IHttpActionResult GetOsobe()
@@ -101,6 +108,8 @@ namespace TelefonskiImenik.Controllers.API
         }
 
         /*---------------------------------------------------------------------------------------------------*/
+
+        //metoda koja vraća podatke za osobu za punjenje liste na view-u DetaljiKontakta
         [Route("api/Kontakt/GetOsoba/{id}")]
         [HttpGet]
         public IHttpActionResult GetOsoba(int id)
@@ -111,6 +120,8 @@ namespace TelefonskiImenik.Controllers.API
         }
 
         /*---------------------------------------------------------------------------------------------------*/
+
+        //metoda koja sprema podatke broj osobe na view-u DodajBroj
         [Route("api/Kontakt/DodajBroj")]
         [HttpPost]
         public IHttpActionResult DodajBroj([FromBody]BrojeviOsoba broj)
@@ -129,6 +140,8 @@ namespace TelefonskiImenik.Controllers.API
         }
 
         /*---------------------------------------------------------------------------------------------------*/
+
+        //metoda koja sprema podatke osobe na view-u DodajBroj
         [Route("api/Kontakt/DodajOsobu")]
         [HttpPost]
         public IHttpActionResult DodajOsobu([FromBody]Osoba osoba)
