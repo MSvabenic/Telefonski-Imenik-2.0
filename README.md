@@ -1,4 +1,7 @@
 # Telefonski-Imenik-2.0
+
+There is a new version of the application available: https://github.com/MSvabenic/Telefonski-Imenik-3.0 .
+
 Simple phone book application to save contact info with a picture, add multiple numbers for a contact,  grid with all contacts and a contact detail page.
 
 After cloning or downloading the repository, open the solution in Visual Studio. Open Package Manager Console, choose DataLayer as 
